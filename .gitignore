@@ -1,0 +1,11 @@
+.DS_Store
+.Rhistory
+.ruby-version
+README.txt
+DEG_lists
+HC
+gene_lists_filtered
+stats_results
+FASTQC
+Plots           
+pathways
