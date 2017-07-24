@@ -4,8 +4,8 @@ library(tidyr)
 library(tibble)
 library(genefilter)
 
-setwd("~/Dropbox/Kits/")
-all = read.delim("Pico.V4.Truseq.commons.txt")
+setwd("~/Documents/dimitra/Workspace/RNA-Seq/Kits_comparison/")
+all = read.delim("DEG_lists/commons/Pico.V4.Truseq.commons.txt")
 head(all)
 
 #FCs
@@ -505,3 +505,57 @@ all %>%
   coord_cartesian(xlim=c(-3,3), ylim = c(-3,3.5)) +
   theme_bw(base_size = 30)
 ggsave("~/Dropbox/Kits/Plots/Truseq.vs.V4.log10FC20.jpg", height = 40, width = 40, units ="cm")
+
+
+
+
+# Spearman's rank correlation on sample level (same sample, across 3 kits)
+#correlate multiple samples
+library(corrplot)
+
+all.ILB.9579 = all %>%
+  select(ILB_9579.Truseq,ILB.9579.ClontechPico,ILB.9579.ClontechV4)
+all.ILB.9579.cor = cor(all.ILB.9579, method = "spearman")
+jpeg("Plots/correlation/ILB.9579.correlation.jpg", height = 25, width = 20, units ="cm", res = 150)
+corrplot(all.ILB.9579.cor, type="upper", order="hclust", method = "number")
+dev.off()
+
+
+all.ILB.9582 = all %>%
+  select(ILB_9582.Truseq,ILB.9582.ClontechPico,ILB.9582.ClontechV4)
+all.ILB.9582.cor = cor(all.ILB.9582, method = "spearman")
+jpeg("Plots/correlation/ILB.9582.correlation.jpg", height = 25, width = 20, units ="cm", res = 150)
+corrplot(all.ILB.9582.cor, type="upper", order="hclust", method = "number")
+dev.off()
+
+
+all.ILB.9583 = all %>%
+  select(ILB_9583.Truseq,ILB.9583.ClontechPico,ILB.9583.ClontechV4)
+all.ILB.9583.cor = cor(all.ILB.9583, method = "spearman")
+jpeg("Plots/correlation/ILB.9583.correlation.jpg", height = 25, width = 20, units ="cm", res = 150)
+corrplot(all.ILB.9583.cor, type="upper", order="hclust", method = "number")
+dev.off()
+
+
+all.UNT.9574 = all %>%
+  select(UNT_9574.Truseq,UNT.9574.ClontechPico,UNT.9574.ClontechV4)
+all.UNT.9574.cor = cor(all.UNT.9574, method = "spearman")
+jpeg("Plots/correlation/UNT.9574.correlation.jpg", height = 25, width = 20, units ="cm", res = 150)
+corrplot(all.UNT.9574.cor, type="upper", order="hclust", method = "number")
+dev.off()
+
+
+all.UNT.9575 = all %>%
+  select(UNT_9575.Truseq,UNT.9575.ClontechPico,UNT.9575.ClontechV4)
+all.UNT.9575.cor = cor(all.UNT.9575, method = "spearman")
+jpeg("Plots/correlation/UNT.9575.correlation.jpg", height = 25, width = 20, units ="cm", res = 150)
+corrplot(all.UNT.9575.cor, type="upper", order="hclust", method = "number")
+dev.off()
+
+
+all.UNT.9576 = all %>%
+  select(UNT_9576.Truseq,UNT.9576.ClontechPico,UNT.9576.ClontechV4)
+all.UNT.9576.cor = cor(all.UNT.9576, method = "spearman")
+jpeg("Plots/correlation/UNT.9576.correlation.jpg", height = 25, width = 20, units ="cm", res = 150)
+corrplot(all.UNT.9576.cor, type="upper", order="hclust", method = "number")
+dev.off()
