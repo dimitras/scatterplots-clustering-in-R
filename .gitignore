@@ -1,7 +1,7 @@
 .DS_Store
+.Rapp.history
 .Rhistory
 .ruby-version
-README.txt
 DEG_lists
 HC
 gene_lists_filtered
